@@ -5,6 +5,8 @@
 (define deps
   '("base"
     "pict-lib"
+    "draw-lib"
+    "rhombus-lib"
     "rhombus-pict-lib"))
 
 (define pkg-desc "Racket code rending as Rhimbus picts")
