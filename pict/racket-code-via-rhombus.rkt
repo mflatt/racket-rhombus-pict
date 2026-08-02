@@ -26,7 +26,8 @@
                   [= rhm:=])
          rhombus/private/version-case)
 
-(provide code)
+(provide code
+         (rename-out [typeset-code-via-rhombus typeset-code]))
 
 (define-syntax (meta-when-unit-available stx)
   (syntax-case stx ()
@@ -166,5 +167,6 @@
 
    (define-code code typeset-code-via-rhombus))
  (begin
-   (require pict/code)
-   (provide code)))
+   (require (only-in pict/code
+                     code
+                     (rename-in [typset-code typeset-code-via-rhombus])))))
