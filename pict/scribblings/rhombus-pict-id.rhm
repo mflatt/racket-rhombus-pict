@@ -1,0 +1,10 @@
+#lang rhombus
+import:
+  rhombus/scribble/manual open
+  meta_label:
+    pict open
+
+export:
+  rhombus_pict
+
+def rhombus_pict = @rhombus(Pict, ~annot)
