@@ -108,7 +108,9 @@
              [style (let loop ([style style])
                       (cond
                         [(symbol? style)
-                         (rhombus-expression (group rhm:Font (parens (group #:kind (block (group style))))))]
+                         (define size (current-font-size))
+                         (rhombus-expression (group rhm:Font (parens (group #:kind (block (group style)))
+                                                                     (group #:size (block (group size))))))]
                         [(is-a? style font%)
                          (rhombus-expression (group rhm:Font (op |.|) from_handle (parens (group style))))]
                         [else
