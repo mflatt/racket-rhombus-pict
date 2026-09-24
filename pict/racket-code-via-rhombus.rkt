@@ -171,4 +171,8 @@
  (begin
    (require (only-in pict/code
                      code
-                     (rename-in [typset-code typeset-code-via-rhombus])))))
+                     [typeset-code orig:typeset-code]))
+   (define (typeset-code-via-rhombus p)
+     (let ([p (orig:typeset-code p)])
+       (rhombus-expression (group rhm:Pict (op |.|) from_handle (parens (group p))))))
+   (define-code code typeset-code-via-rhombus)))
